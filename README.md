@@ -4,6 +4,8 @@
  
  Game instructions
  
+ To start the game open a terminal and type 'node script.js' 
+ 
  - create -> creates a robot to be place on the grid which 5x5 indexed at 0
  - select -> selects a robot on the grid
  - move -> moves a robot forward or back
