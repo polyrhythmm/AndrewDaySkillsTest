@@ -318,13 +318,33 @@ function askQuestionRotate() {
 
 //Prompts the user where to place the robot
 function askQuestionPlace() {
-    rl.question('Where would you like to place it? Example - 0 0 north will place your robot top left facing north\n', function(answer) {
-        var line = answer.split(' ');
-        var pos1 = line[0];
-        var pos2 = line[1];
-        var pos3 = line[2];
+    var line = '';
+    var pos1 = '';
+    var pos2 = '';
+    var pos3 = '';
 
-        if(pos1 === undefined || pos2 === undefined || pos3 === undefined) {
+    rl.question('Where would you like to place it? Example - 0 0 north will place your robot top left facing north\n', function(answer) {
+        line = answer.split(' ');
+        pos1 = line[0].toLowerCase();
+        pos2 = line[1].toLowerCase();
+        pos3 = line[2].toLowerCase();
+
+        if(pos3 === 'north') {
+            pos3 = line[2].toLowerCase();
+        } else if(pos3 === 'east') {
+            pos3 = line[2].toLowerCase();
+        } else if(pos3 === 'south') {
+            pos3 = line[2].toLowerCase();
+        } else if(pos3 === 'west') {
+            pos3 = line[2].toLowerCase();
+        } else {
+            console.log('Your input was invalid');
+            askQuestionPlace();
+            return;
+        }
+        
+        if(pos1 === undefined || pos1.length > 1 || pos2 === undefined || pos2.length > 1 || pos3 === undefined) {
+            
             console.log('Your input was invalid');
 
             askQuestionPlace();
