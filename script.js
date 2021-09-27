@@ -318,7 +318,7 @@ function askQuestionRotate() {
 
 //Prompts the user where to place the robot
 function askQuestionPlace() {
-    rl.question('Where would you like to place it? Example - 0 0 north will place your robot bottom left facing north\n', function(answer) {
+    rl.question('Where would you like to place it? Example - 0 0 north will place your robot top left facing north\n', function(answer) {
         var line = answer.split(' ');
         var pos1 = line[0];
         var pos2 = line[1];
