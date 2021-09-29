@@ -251,7 +251,8 @@ function createRobot() {
 //setRotation - sets the rotation of the robot
 function setRotation(direction) {
     selectedRobot.f = direction;
-    console.log("Rotate is now set at ", direction);
+
+    console.log("\nRotate is now set at ", direction + "\n");
 }
 
 
@@ -280,7 +281,7 @@ function askQuestionSelect() {
             askQuestionSelect();
         } else {
             selectedRobot = robotArray[parseInt(answer)];
-            console.log("You have selected Robot number " + selectedRobot.getIndex());
+            console.log("\nYou have selected Robot number " + selectedRobot.getIndex() + "\n");
             start();
         }
     })
@@ -358,12 +359,16 @@ function askQuestionPlace() {
 
 //Reports the details of the Robot(s)
 function askQuestionReport() {
+    console.log("\n**********************************************")
     for(var i = 0; i < robotArray.length; i++) {
         console.log("Robot number "+ i + " is @ y: ", robotArray[i].getPositionY(), ", x:", robotArray[i].getPositionX(), ", direction:", robotArray[i].getPositionF())
 
     }
-    
+    console.log("\n")
     console.log(positionArrayOutput);
+    
+    console.log("\n**********************************************\n");
+    
     start();
 }
 
@@ -376,7 +381,9 @@ rl.on("close", function() {
 //Places the robot on the game board
 function place(x, y, f) {   
     if(positionArray[x][y].available === false) {
+        console.log("\n**********************************************")
         console.log("There is already a robot in that position");
+        console.log("**********************************************\n")
         start(); 
     } else {
         selectedRobot.setPosition(y, x, f);
