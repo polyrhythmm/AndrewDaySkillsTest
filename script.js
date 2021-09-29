@@ -329,20 +329,27 @@ function askQuestionPlace() {
         pos1 = line[0].toLowerCase();
         pos2 = line[1].toLowerCase();
         pos3 = line[2].toLowerCase();
-
-        if(pos3 === 'north') {
-            pos3 = line[2].toLowerCase();
-        } else if(pos3 === 'east') {
-            pos3 = line[2].toLowerCase();
-        } else if(pos3 === 'south') {
-            pos3 = line[2].toLowerCase();
-        } else if(pos3 === 'west') {
-            pos3 = line[2].toLowerCase();
+        if(pos3 !== undefined) {
+            if(pos3 === 'north') {
+                pos3 = line[2].toLowerCase();
+            } else if(pos3 === 'east') {
+                pos3 = line[2].toLowerCase();
+            } else if(pos3 === 'south') {
+                pos3 = line[2].toLowerCase();
+            } else if(pos3 === 'west') {
+                pos3 = line[2].toLowerCase();
+            } else {
+                console.log('Your input was invalid');
+                askQuestionPlace();
+                return;
+            }
         } else {
             console.log('Your input was invalid');
+
             askQuestionPlace();
             return;
         }
+        
         
         if(pos1 === undefined || pos1.length > 1 || pos2 === undefined || pos2.length > 1 || pos3 === undefined) {
             
